@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "prose-check: Detect AI Writing Patterns in Prose"
+version: 0.1.0
+date-released: 2026-02-04
+license: MIT
+repository-code: "https://github.com/shandley/prose-check"
+url: "https://github.com/shandley/prose-check"
+abstract: >-
+  A statistical tool for detecting AI-generated writing patterns in prose.
+  Uses log-odds ratio analysis to identify words, phrases, and structural
+  patterns that are overrepresented in LLM output compared to human writing.
+  Provides scoring, detailed findings, and interactive fixing capabilities.
+keywords:
+  - ai-detection
+  - writing-analysis
+  - llm
+  - prose
+  - natural-language-processing
+  - claude
+authors:
+  - family-names: Handley
+    given-names: Scott A.
+    orcid: "https://orcid.org/0000-0003-4317-9652"
+    affiliation: "Washington University School of Medicine"

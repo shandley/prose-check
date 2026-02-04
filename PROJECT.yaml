@@ -1,0 +1,85 @@
+name: prose-check
+type: tool
+status: active
+goal: "Published on PyPI as open-source LLM writing pattern detection tool"
+
+description: |
+  Statistical tool for detecting AI-generated writing patterns in prose.
+  Compares text against learned markers from Claude/human corpus comparison.
+  Provides scoring, detailed findings, and interactive fixing.
+
+releases:
+  code: "v0.1.0 (pre-release)"
+  manuscript:
+    status: not_planned
+    notes: "Tool paper possible if demand warrants"
+
+milestones:
+  # Core functionality
+  - name: "Statistical analysis pipeline"
+    status: complete
+  - name: "Log-odds ratio marker detection"
+    status: complete
+  - name: "Multi-model comparison"
+    status: complete
+  - name: "Document checker CLI"
+    status: complete
+  - name: "Interactive fixing mode"
+    status: complete
+
+  # Output formats
+  - name: "Text output"
+    status: complete
+  - name: "JSON output"
+    status: complete
+  - name: "HTML report output"
+    status: complete
+
+  # Integration
+  - name: "Pre-commit hook"
+    status: complete
+  - name: "GitHub Action"
+    status: complete
+  - name: "Claude Code skill"
+    status: complete
+
+  # Documentation
+  - name: "README with usage"
+    status: complete
+  - name: "Methodology documentation"
+    status: in_progress
+  - name: "Publication workflow skills"
+    status: not_started
+
+  # Release
+  - name: "PyPI release"
+    status: not_started
+  - name: "GitHub repo (prose-check)"
+    status: in_progress
+
+connections:
+  grants: []
+  papers: []
+  tools:
+    - "~/Code/tools/research-context"
+  datasets:
+    - "Human corpus: 6,000 samples from Wikipedia/OpenWebText"
+    - "Opus corpus: 201 samples from Claude Opus 4.5"
+
+notes: |
+  Migrated from ~/Code/tools/claude-style-guide/opus-styleguide to standalone repo.
+
+  Key statistics:
+  - 2,954 trained markers (1,781 high severity, 684 medium)
+  - Compares against 6,000 human text samples
+  - Detects words, bigrams, trigrams, sentence starters, punctuation, structure
+
+  Distinctive findings:
+  - Em dash overuse: 17x human rate (Opus 4.5 specific)
+  - Paragraph fragmentation: 16 words avg vs human 210
+  - List overuse: 9.5 items/doc vs human ~0
+
+  Integration with research-context for publication workflows.
+
+created: 2026-02-04
+last_modified: 2026-02-04
