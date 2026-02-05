@@ -309,6 +309,72 @@ Available models: `opus-4.5`, `sonnet-4`, `sonnet-3.7`, `haiku-3.5`, `haiku-3`
 
 ---
 
+## How the Skills Were Created
+
+The writing guidance in these skills is based on **statistical corpus analysis**, not conventional wisdom.
+
+### Data Sources
+
+**AI Corpus:**
+- 201 Claude Opus 4.5 samples (~47,000 words)
+- Generated from 300+ diverse prompts (technical docs, professional writing, general prose)
+- Additional samples from Sonnet 4, Sonnet 3.7, Haiku 3.5, Haiku 3 for comparison
+
+**Human Baseline:**
+- 6,000 texts (~1.2M words)
+- Sources: Wikipedia (40%), OpenWebText (30%), C4 dataset (20%), The Pile (10%)
+- Filtered to match AI sample characteristics (length, genre)
+
+### Statistical Method
+
+**Log-odds ratio analysis** identifies patterns that are statistically overrepresented in AI text:
+
+```
+Pattern is flagged if:
+1. Appears ≥5 times in AI corpus
+2. AI rate ≥ 2x human rate
+3. 95% confidence interval doesn't cross zero (statistically significant)
+```
+
+**Example:**
+- "comprehensive" appears 24.4x more in Opus 4.5 than human text (CI: 3.08–3.32)
+- Em dashes: 4.78 per 1k chars (AI) vs 0.28 (human) = 16.9x overuse
+
+### From Statistics to Guidance
+
+The analysis produces ~2,954 markers across categories:
+
+| Category | Detection | Skill Guidance |
+|----------|-----------|----------------|
+| **Lexical** | "comprehensive" 24x, "robust" 43x (Haiku) | Word alternatives table |
+| **Punctuation** | Em dash 16.9x, colon 4.1x, semicolon 3.1x | Avoid overuse guidance |
+| **Structure** | Paragraphs 16 words (AI) vs 210 (human) | Combine related ideas |
+| **Hedging** | "typically" 9.6x, "often" 4.9x | Be direct guidance |
+| **Sentence starters** | "This document..." 623x | Avoid formulaic openings |
+
+### Why This Matters
+
+Traditional style guides are based on conventions and expert opinion. These skills are based on measurable differences between AI and human writing. Some findings contradict common advice:
+
+- **Passive voice:** AI uses less, not more → don't over-correct
+- **Transitions:** AI uses fewer "however," "furthermore" → don't avoid them entirely
+- **Hedging:** Context matters → scientific writing exceptions in `scientific-style` skill
+
+### Limitations
+
+- **Model-specific:** Trained primarily on Claude (Opus 4.5); patterns may differ for GPT, other LLMs
+- **Corpus bias:** Human baseline is primarily English web text, not academic journals or fiction
+- **Static patterns:** Markers don't auto-update as models evolve
+- **Context-blind:** Can't determine if a flagged pattern is contextually appropriate
+
+### Learn More
+
+- **[Full Methodology](docs/methodology.md)** - Statistical approach, confidence intervals, filtering criteria
+- **[Model Comparison](results/model_comparison.md)** - How patterns differ across Claude versions
+- **[Markers Database](results/markers.json)** - All 2,954 detected patterns with statistics
+
+---
+
 ## Project Structure
 
 ```
