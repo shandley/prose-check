@@ -100,6 +100,52 @@ def load_image_bytes(image_path):
         return f.read(), mime_type
 
 
+def detect_image_format(data):
+    """Detect image format from file header bytes."""
+    if data[:3] == b"\xff\xd8\xff":
+        return "jpeg"
+    elif data[:8] == b"\x89PNG\r\n\x1a\n":
+        return "png"
+    elif data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return "webp"
+    elif data[:3] == b"GIF":
+        return "gif"
+    return "unknown"
+
+
+def correct_extension(output_path, detected_format):
+    """Correct file extension to match actual image format.
+
+    Gemini typically returns JPEG data regardless of requested extension.
+    This ensures the saved file has the correct extension.
+    """
+    ext_map = {
+        "jpeg": ".jpg",
+        "png": ".png",
+        "webp": ".webp",
+        "gif": ".gif",
+    }
+    if detected_format not in ext_map:
+        return output_path
+
+    expected_ext = ext_map[detected_format]
+    current_ext = output_path.suffix.lower()
+
+    # .jpg and .jpeg are equivalent
+    if detected_format == "jpeg" and current_ext in (".jpg", ".jpeg"):
+        return output_path
+    if current_ext == expected_ext:
+        return output_path
+
+    corrected = output_path.with_suffix(expected_ext)
+    print(
+        f"Note: Gemini returned {detected_format.upper()} data. "
+        f"Saving as {corrected.name} instead of {output_path.name}",
+        file=sys.stderr,
+    )
+    return corrected
+
+
 def emit_metadata(metadata):
     """Write JSON metadata to stderr for structured output."""
     print(json.dumps(metadata), file=sys.stderr)
@@ -181,12 +227,15 @@ def generate_figure(prompt, output_path=None, input_image=None, style=None, size
                 for part in response.candidates[0].content.parts:
                     if part.inline_data is not None:
                         image_data = part.inline_data.data
-                        with open(output_path, "wb") as f:
+                        detected_fmt = detect_image_format(image_data)
+                        actual_path = correct_extension(output_path, detected_fmt)
+                        with open(actual_path, "wb") as f:
                             f.write(image_data)
 
                         metadata = {
                             "success": True,
-                            "path": str(output_path),
+                            "path": str(actual_path),
+                            "detected_format": detected_fmt,
                             "model": model_name,
                             "mode": mode,
                             "style": style,
@@ -196,7 +245,7 @@ def generate_figure(prompt, output_path=None, input_image=None, style=None, size
                             "attempt": attempt,
                             "timestamp": datetime.now().isoformat(),
                         }
-                        print(f"Image saved to: {output_path}")
+                        print(f"Image saved to: {actual_path}")
                         emit_metadata(metadata)
                         return metadata
 

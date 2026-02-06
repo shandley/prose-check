@@ -135,19 +135,55 @@ When reporting review results, use this format:
 2. [Specific fix needed]
 ```
 
+## Revision Strategy: Edit vs Re-generate
+
+Gemini's multi-turn image editing is **conservative** - it preserves the original composition and makes incremental changes. Before building a revision prompt, classify each failed criterion:
+
+### Edit-fixable issues (use `--input-image`)
+
+These work well with multi-turn editing:
+- Color changes (e.g., swap red-green to blue-orange)
+- Text size adjustments
+- Adding small elements (labels, annotations, scale bars)
+- Style tweaks (background color, line weight)
+- Minor additions that don't change layout
+
+### Re-generate issues (use a new prompt from scratch)
+
+These require a fresh generation with an improved prompt:
+- Layout or arrangement changes (e.g., rearranging panels, changing flow direction)
+- Structural changes to diagrams (e.g., changing arrow directions, adding/removing major components)
+- Fundamentally different composition
+- Completely different visual approach
+
+**Rule of thumb:** If the issue is "add/change something within the existing layout," edit. If the issue is "the layout itself is wrong," re-generate with a better prompt.
+
 ## Building Revision Prompts from Review
 
-When a figure fails review, construct the revision prompt by:
+### For edits (surface fixes)
+
+When using `--input-image` for editing:
 
 1. Starting with "Edit this figure:"
 2. Listing each failed criterion as a specific instruction
 3. Being concrete: "increase axis label font to 12pt" not "make text bigger"
 4. Prioritizing: fix Fail items first, then Warn items
+5. Keep to 2-3 changes per edit pass - more changes are more likely to be ignored
 
-**Example revision prompt:**
+**Example edit prompt:**
 ```
 Edit this figure: (1) Increase all axis labels to at least 10pt font.
 (2) Change the red and green bars to blue and orange for colorblind accessibility.
-(3) Add panel labels A and B in bold uppercase to the upper-left of each panel.
-(4) Add units to the y-axis: "Expression level (TPM)".
+(3) Add units to the y-axis: "Expression level (TPM)".
 ```
+
+### For re-generation (structural fixes)
+
+When re-generating from scratch:
+
+1. Start from the original prompt that produced the best version
+2. Add the structural fixes directly into the prompt description
+3. Be more specific about layout, arrangement, and flow direction
+4. Include details you learned from the failed version (what worked, what didn't)
+
+**Example:** If the original prompt produced good content but wrong arrow flow, don't edit - instead re-generate with explicit flow directions baked into the prompt.

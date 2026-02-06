@@ -73,10 +73,13 @@ Review image (Read tool - visual inspection)
       no (max 3 iterations)
       |
       v
-Build revision prompt from review feedback
+Classify issues: surface vs structural
       |
-      v
-Edit figure (generate_figure.py --input-image <prev> "fix instructions")
+      +--> Surface issues (colors, text size, small additions):
+      |      Edit figure (generate_figure.py --input-image <prev> "fix instructions")
+      |
+      +--> Structural issues (layout, flow, arrangement):
+             Re-generate from scratch with improved prompt
       |
       v
   (loop back to Review)
@@ -87,6 +90,12 @@ Edit figure (generate_figure.py --input-image <prev> "fix instructions")
 - Each revision prompt must reference specific issues from the review
 - After 3 attempts, present the best version and list remaining issues
 - Save each iteration (fig1_v1.png, fig1_v2.png, etc.) so the user can compare
+
+**When to edit vs re-generate:**
+Gemini's multi-turn editing is conservative - it preserves the original composition strongly. This means:
+- **Use `--input-image` editing for:** color changes, text/label tweaks, adding small elements, adjusting styling
+- **Re-generate from scratch for:** changing layout structure, rearranging components, modifying arrow/flow direction, changing the overall composition
+- When re-generating, incorporate the specific improvements into a more detailed initial prompt rather than trying to edit the structure after the fact
 
 ## Generation Script Usage
 
@@ -118,11 +127,15 @@ python .claude/skills/scientific-figures/scripts/generate_figure.py --validate
 
 **Flags:**
 - `--style scientific`: Prepends publication-quality instructions (white background, clean lines, sans-serif labels, colorblind-safe colors)
-- `--input-image`: Provide existing image for multi-turn editing
-- `--size 1k|2k|4k`: Target output resolution
+- `--input-image`: Provide existing image for multi-turn editing (best for surface tweaks, not structural changes)
+- `--size 1k|2k|4k`: Advisory target resolution (actual output resolution is model-controlled, typically ~1408x768)
 - `--output`: Output file path (default: `figure_TIMESTAMP.png`)
 
 The script outputs JSON metadata to stderr with model used, prompt, timing, and success status.
+
+**Important notes:**
+- Gemini returns JPEG data regardless of the output file extension. The script detects the actual format and corrects the extension automatically (e.g., `fig1.png` becomes `fig1.jpg` if Gemini returns JPEG).
+- Output resolution is controlled by the model, not the `--size` flag. The flag adds resolution hints to the prompt but Gemini may ignore them. Typical output is ~1408x768 at 300 DPI.
 
 ## Review Criteria (Quick Reference)
 
