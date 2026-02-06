@@ -28,6 +28,7 @@ SKILLS=(
     "revision-workflow"
     "submission-prep"
     "scientific-style"
+    "scientific-figures"
 )
 
 REPO_URL="https://github.com/shandley/prose-check"
@@ -55,6 +56,7 @@ usage() {
     echo "  revision-workflow     Peer review responses, change tracking"
     echo "  submission-prep       Cover letters, checklists, figures/tables"
     echo "  scientific-style      Citations, hedging, claim calibration"
+    echo "  scientific-figures    AI figure generation, review, and revision"
 }
 
 list_skills() {
@@ -79,6 +81,10 @@ list_skills() {
     echo -e "  ${GREEN}scientific-style${NC}"
     echo "    Calibrate claims and integrate citations."
     echo "    Use for: hedging language, citation patterns, claim strength"
+    echo ""
+    echo -e "  ${GREEN}scientific-figures${NC}"
+    echo "    Generate and review scientific figures with AI."
+    echo "    Use for: figure generation, visual review, manuscript alignment"
     echo ""
 }
 
@@ -203,7 +209,15 @@ echo "    /manuscript-writing [section]"
 echo "    /revision-workflow [reviewer comment]"
 echo "    /submission-prep [task]"
 echo "    /scientific-style [text to review]"
+echo "    /scientific-figures [figure description]"
 echo ""
+
+# Make scripts executable
+for skill in "${SKILLS[@]}"; do
+    if [ -d "$INSTALL_DIR/$skill/scripts" ]; then
+        chmod +x "$INSTALL_DIR/$skill/scripts/"*.py 2>/dev/null || true
+    fi
+done
 
 if [ "$GLOBAL" = true ]; then
     echo -e "${YELLOW}Note:${NC} Global skills are available in all Claude Code projects."
