@@ -29,12 +29,15 @@ That's it. Skills activate automatically when you write with Claude Code.
 | **revision-workflow** | `/revision-workflow` | Peer review responses, change tracking |
 | **submission-prep** | `/submission-prep` | Cover letters, submission checklists |
 | **scientific-style** | `/scientific-style` | Citations, hedging, claim calibration |
+| **scientific-figures** | `/scientific-figures` | Figure generation, visual review, manuscript alignment |
+| **bibliography** | `/bibliography` | Citation cross-referencing, orphan detection, reference formatting |
 
 ### Workflow Integration
 
 ```
 Writing Phase:      manuscript-writing + human-writing + scientific-style
-Submission Phase:   submission-prep + human-writing
+Figures Phase:      scientific-figures + manuscript-writing
+Submission Phase:   submission-prep + bibliography + human-writing
 Revision Phase:     revision-workflow + scientific-style + human-writing
 ```
 
@@ -93,6 +96,26 @@ Calibrate scientific claims and integrate citations properly.
 - Reporting verbs and their connotations
 - Tense usage by section
 
+### scientific-figures
+
+Generate and review scientific figures with AI.
+
+**What it covers:**
+- Figure generation from data or descriptions
+- Visual review against journal standards
+- Manuscript alignment checks (figure references, numbering)
+- Resolution, format, and sizing guidance
+
+### bibliography
+
+Audit, fix, and format bibliographies.
+
+**What it covers:**
+- Citation cross-referencing (in-text vs reference list)
+- Orphan detection (unreferenced entries, missing references)
+- Reference formatting for target journal styles
+- DOI validation and metadata verification
+
 ## Installation Options
 
 ### Option 1: Install Script (Recommended)
@@ -120,6 +143,8 @@ cp -r prose-check/.claude/skills/manuscript-writing .claude/skills/
 cp -r prose-check/.claude/skills/revision-workflow .claude/skills/
 cp -r prose-check/.claude/skills/submission-prep .claude/skills/
 cp -r prose-check/.claude/skills/scientific-style .claude/skills/
+cp -r prose-check/.claude/skills/scientific-figures .claude/skills/
+cp -r prose-check/.claude/skills/bibliography .claude/skills/
 
 # Or copy to global location
 cp -r prose-check/.claude/skills/* ~/.claude/skills/
@@ -146,12 +171,16 @@ Available skills:
   - revision-workflow
   - submission-prep
   - scientific-style
+  - scientific-figures
+  - bibliography
 ```
 
 Invoke any skill directly:
 ```
 /human-writing Write an introduction about climate change
 /manuscript-writing Help me structure my Methods section
+/scientific-figures Generate a bar chart comparing treatment groups
+/bibliography Audit manuscript.md for citation issues
 ```
 
 Or let them activate automatically based on context.
@@ -385,7 +414,9 @@ prose-check/
 │   ├── manuscript-writing/
 │   ├── revision-workflow/
 │   ├── submission-prep/
-│   └── scientific-style/
+│   ├── scientific-style/
+│   ├── scientific-figures/
+│   └── bibliography/
 ├── check_writing.py           # CLI tool
 ├── run_pipeline.py            # Analysis pipeline
 ├── src/                       # Pipeline modules

@@ -8,12 +8,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Methodology documentation (`docs/methodology.md`)
+- `scientific-figures` skill for AI figure generation and review using Gemini
+  - Includes `generate_figure.py` script for Gemini API integration
+  - Reviewed and revised based on empirical testing
+- `bibliography` skill for bibliography auditing, fixing, and formatting
+  - Three modes: audit, fix, format
+  - Cross-references inline citations against bibliography bidirectionally
+  - Supports APA, Vancouver, and Chicago styles
+- `install-skills.sh` installer script for local and global skill installation
+- Methodology documentation (`docs/methodology.md`) with detailed statistical methodology
+- Methodology section in README explaining corpus-based skill creation
 - PROJECT.yaml for project tracking
 - CITATION.cff for academic citations
 - This CHANGELOG
 
 ### Changed
+- Restructured README with skills-first approach
 - Repository renamed from `claude-style-guide` to `prose-check`
 - Updated GitHub URLs in pyproject.toml
 

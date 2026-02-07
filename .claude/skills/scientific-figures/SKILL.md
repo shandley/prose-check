@@ -229,10 +229,10 @@ canvas.save("composite.png", dpi=(300, 300))
 
 ## Configuration
 
-The generation script requires a Google API key:
+The generation script requires a Google API key and the `google-genai` package:
 
-1. Set `GOOGLE_API_KEY` environment variable, or
-2. Add `GOOGLE_API_KEY=your_key` to a `.env` file in the project directory
+1. Install the dependency: `pip install google-genai` (not in the main `requirements.txt` since it's only needed for figure generation)
+2. Set `GOOGLE_API_KEY` environment variable, or add `GOOGLE_API_KEY=your_key` to a `.env` file in the project directory
 
 ## Related Files
 

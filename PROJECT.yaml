@@ -48,8 +48,8 @@ milestones:
     status: complete
   - name: "Methodology documentation"
     status: in_progress
-  - name: "Publication workflow skills"
-    status: not_started
+  - name: "Publication workflow skills (7 skills)"
+    status: complete
 
   # Release
   - name: "PyPI release"
@@ -79,7 +79,16 @@ notes: |
   - Paragraph fragmentation: 16 words avg vs human 210
   - List overuse: 9.5 items/doc vs human ~0
 
+  7 Claude Code skills:
+  - human-writing: Natural prose style, avoids AI patterns
+  - manuscript-writing: IMRaD structure, abstracts, academic papers
+  - revision-workflow: Peer review responses, change tracking
+  - submission-prep: Cover letters, checklists, figures/tables
+  - scientific-style: Citations, hedging, claim calibration
+  - scientific-figures: AI figure generation, review, and revision
+  - bibliography: Audit, fix, and format bibliographies
+
   Integration with research-context for publication workflows.
 
 created: 2026-02-04
-last_modified: 2026-02-04
+last_modified: 2026-02-06

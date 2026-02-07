@@ -29,6 +29,7 @@ SKILLS=(
     "submission-prep"
     "scientific-style"
     "scientific-figures"
+    "bibliography"
 )
 
 REPO_URL="https://github.com/shandley/prose-check"
@@ -57,6 +58,7 @@ usage() {
     echo "  submission-prep       Cover letters, checklists, figures/tables"
     echo "  scientific-style      Citations, hedging, claim calibration"
     echo "  scientific-figures    AI figure generation, review, and revision"
+    echo "  bibliography          Audit, fix, and format bibliographies"
 }
 
 list_skills() {
@@ -85,6 +87,10 @@ list_skills() {
     echo -e "  ${GREEN}scientific-figures${NC}"
     echo "    Generate and review scientific figures with AI."
     echo "    Use for: figure generation, visual review, manuscript alignment"
+    echo ""
+    echo -e "  ${GREEN}bibliography${NC}"
+    echo "    Audit, fix, and format bibliographies."
+    echo "    Use for: citation cross-referencing, orphan detection, reference formatting"
     echo ""
 }
 
@@ -210,6 +216,7 @@ echo "    /revision-workflow [reviewer comment]"
 echo "    /submission-prep [task]"
 echo "    /scientific-style [text to review]"
 echo "    /scientific-figures [figure description]"
+echo "    /bibliography [audit manuscript.md]"
 echo ""
 
 # Make scripts executable
