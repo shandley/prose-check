@@ -93,6 +93,7 @@ Is the image technically sound for publication?
 | Clean lines | No jagged edges, pixelation, or compression artifacts |
 | No watermarks | Free of any overlay text or watermarks |
 | No AI artifacts | No extra fingers, garbled text, or hallucinated elements |
+| Small text accuracy | Dates, paths, code in small text may be hallucinated by Gemini — verify any text that is legible at print size |
 | White background | Clean white (or intentional) background |
 | File format | PNG for draft, TIFF/EPS/PDF for final submission |
 | File size | Within journal limits (typically 10-50 MB per figure) |
@@ -135,55 +136,30 @@ When reporting review results, use this format:
 2. [Specific fix needed]
 ```
 
-## Revision Strategy: Edit vs Re-generate
+## Cross-Figure Consistency Review
 
-Gemini's multi-turn image editing is **conservative** - it preserves the original composition and makes incremental changes. Before building a revision prompt, classify each failed criterion:
+After reviewing individual figures, review the **entire figure set together**. This catches issues that per-figure review misses.
 
-### Edit-fixable issues (use `--input-image`)
+| Check | What to look for |
+|-------|-----------------|
+| Background colors | All conceptual diagrams should share the same background (typically white). Tool output screenshots may use dark backgrounds — note this in captions. |
+| Color palette | Same accent color family across conceptual figures (e.g., all use blue accents). Data figures should use the same palette for the same variables. |
+| Border/box style | Rounded vs sharp rectangles should be consistent across similar figure types. |
+| Font family | Same sans-serif font across all Gemini-generated figures. |
+| Figure sizing | Wide-aspect figures (e.g., 3-panel composites) need full-width placement. Verify the paper layout supports this. |
+| Label conventions | Panel labels (A, B, C) should use the same style, size, and position across all figures — or be consistently absent if added manually later. |
 
-These work well with multi-turn editing:
-- Color changes (e.g., swap red-green to blue-orange)
-- Text size adjustments
-- Adding small elements (labels, annotations, scale bars)
-- Style tweaks (background color, line weight)
-- Minor additions that don't change layout
+## When Review Finds Issues
 
-### Re-generate issues (use a new prompt from scratch)
+After review identifies problems, **do not attempt automated revision loops**. Instead:
 
-These require a fresh generation with an improved prompt:
-- Layout or arrangement changes (e.g., rearranging panels, changing flow direction)
-- Structural changes to diagrams (e.g., changing arrow directions, adding/removing major components)
-- Fundamentally different composition
-- Completely different visual approach
+1. **Accept minor issues** — small text hallucinations (wrong dates, garbled paths) in text too small to read at print size are cosmetic and not worth re-generating for.
 
-**Rule of thumb:** If the issue is "add/change something within the existing layout," edit. If the issue is "the layout itself is wrong," re-generate with a better prompt.
+2. **Re-generate with a better prompt** — if content or layout is wrong, improve the prompt and generate fresh. Incorporate what you learned from the failed version:
+   - Be more specific about layout and spatial arrangement
+   - Add explicit details that were missing or wrong
+   - Include the exact text content you need at readable size
 
-## Building Revision Prompts from Review
+3. **Let the user decide** — present the figure with a clear issue list. The user may accept it, manually fix it in an image editor, or ask for re-generation.
 
-### For edits (surface fixes)
-
-When using `--input-image` for editing:
-
-1. Starting with "Edit this figure:"
-2. Listing each failed criterion as a specific instruction
-3. Being concrete: "increase axis label font to 12pt" not "make text bigger"
-4. Prioritizing: fix Fail items first, then Warn items
-5. Keep to 2-3 changes per edit pass - more changes are more likely to be ignored
-
-**Example edit prompt:**
-```
-Edit this figure: (1) Increase all axis labels to at least 10pt font.
-(2) Change the red and green bars to blue and orange for colorblind accessibility.
-(3) Add units to the y-axis: "Expression level (TPM)".
-```
-
-### For re-generation (structural fixes)
-
-When re-generating from scratch:
-
-1. Start from the original prompt that produced the best version
-2. Add the structural fixes directly into the prompt description
-3. Be more specific about layout, arrangement, and flow direction
-4. Include details you learned from the failed version (what worked, what didn't)
-
-**Example:** If the original prompt produced good content but wrong arrow flow, don't edit - instead re-generate with explicit flow directions baked into the prompt.
+**Do not use `--input-image` editing to fix issues from review.** Testing shows that Gemini's image editing is unreliable for corrections — it often introduces new errors while failing to fix the original ones. This applies to both manual edit attempts and automated critic agents (e.g., PaperBanana's Critic loop).

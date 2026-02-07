@@ -218,6 +218,73 @@ Use icons for {ICON_ELEMENTS}.
 Clean layout with consistent spacing, sans-serif labels throughout.
 ```
 
+## Three-Section System Diagram
+
+Best for showing systems with input → processing → output flow. This pattern produced excellent results for architecture and provenance diagrams.
+
+```
+A clean scientific diagram showing {SYSTEM_NAME} with three connected
+sections flowing left to right:
+
+LEFT SECTION - '{LEFT_TITLE}': {LEFT_DESCRIPTION}. Label: '{LEFT_LABEL}'.
+
+CENTER SECTION - '{CENTER_TITLE}': {CENTER_DESCRIPTION}. Include specific
+details like {FIELD_NAMES_OR_COMPONENTS}.
+
+RIGHT SECTION - '{RIGHT_TITLE}': {RIGHT_DESCRIPTION}. Show {OUTPUT_ELEMENTS}.
+
+Use a white background, clean lines, sans-serif font (Arial/Helvetica),
+minimal color ({ACCENT_COLOR} accent for arrows/highlights), and no
+decorative elements. Publication quality for a software paper.
+```
+
+**Example (produced a publication-quality figure on first generation):**
+```
+A clean scientific diagram showing the ggterm plot provenance system
+with three connected sections flowing left to right:
+
+LEFT SECTION - 'Plot Creation': Show a terminal window with the command
+'gg(data).aes({x: "gene", y: "expression"}).geom(geom_volcano()).render()'
+and a small plot icon below. Label: 'Terminal Rendering'.
+
+CENTER SECTION - 'Automatic Persistence': Show a JSON document labeled
+'Plot Specification' containing fields: _provenance (id: "2026-01-31-029",
+timestamp, dataFile, command, geomTypes), spec (data, aes, geoms, scales).
+Below it, a file icon labeled 'history.jsonl' as 'Append-only index'.
+Show an arrow from the terminal labeled 'auto-save'.
+
+RIGHT SECTION - 'Search and Retrieval': Show three paths: 'Browse by date'
+with a calendar icon, 'Search by type' with filter checkboxes,
+'Re-render' with dimension controls and 'Export to Vega-Lite'.
+
+White background, blue accents, sans-serif labels. Publication quality.
+```
+
+## Vertical Conversational Workflow
+
+Best for showing iterative user-AI interaction or step-by-step processes. Works well with numbered steps and chat-bubble styling.
+
+```
+A clean scientific diagram showing {WORKFLOW_NAME} as a vertical sequence
+with {N} steps flowing top to bottom:
+
+STEP 1 - '{STEP_1_TITLE}': Show a chat bubble from the user (left side)
+saying '{USER_REQUEST}'. Label: '1. {STEP_1_LABEL}'.
+
+STEP 2 - '{STEP_2_TITLE}': Show a response bubble (right side)
+containing {AI_RESPONSE}. Below it show {VISUAL_ELEMENT}. Label: '2. {STEP_2_LABEL}'.
+
+STEP 3 - '{STEP_3_TITLE}': Show another user request '{REFINEMENT}'
+and the updated response. Label: '3. {STEP_3_LABEL}'.
+
+STEP 4 - '{STEP_4_TITLE}': Show {FINAL_OUTPUT}. Label: '4. {STEP_4_LABEL}'.
+
+{OPTIONAL_SIDE_ELEMENT} on the right side spanning all steps.
+
+White background, light blue for user bubbles, light gray for AI bubbles.
+Sans-serif font. Publication quality.
+```
+
 ## Tips for Using Templates
 
 1. **Replace all placeholders** - Every `{BRACKET}` value must be filled with manuscript-specific content
@@ -225,4 +292,7 @@ Clean layout with consistent spacing, sans-serif labels throughout.
 3. **Name colors explicitly** - "blue and orange" not "different colors"
 4. **Specify text content** - Write out the actual labels you want, don't describe them
 5. **One concept per figure** - Split complex ideas across panels rather than one dense image
-6. **Iterate** - First generation is a starting point; use `--input-image` to refine
+6. **Invest in the prompt, not iteration** - A detailed first prompt consistently beats a vague prompt + multiple edit passes. The first generation is often the final figure.
+7. **Use spatial structure** - Always describe layout section-by-section (LEFT/CENTER/RIGHT or STEP 1/2/3). This is the single most effective prompting technique.
+8. **Accept small text imperfections** - Gemini hallucinates details in small text (dates, file paths, code). If the text is too small to read at print size, don't waste time trying to fix it.
+9. **Generate panels separately for composites** - For multi-panel figures mixing different content types (e.g., Gemini diagrams + real screenshots), generate each panel separately and compose with Python Pillow.
