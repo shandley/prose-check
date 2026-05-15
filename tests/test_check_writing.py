@@ -202,6 +202,7 @@ class TestConfigFunctions:
 
     def test_load_config_from_file(self):
         """Config should load from YAML file."""
+        pytest.importorskip("yaml", reason="PyYAML not installed")
         with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as f:
             f.write("min_score: 75\ntechnical: false\n")
             f.flush()

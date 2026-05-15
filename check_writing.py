@@ -50,10 +50,15 @@ def find_markers_file() -> Path:
     if local_path.exists():
         return local_path
 
-    # 2. Installed package data location
+    # 2. Venv / prefix install (data-files land at <sys.prefix>/share/prose-check/)
+    #    Covers: pip install into venv, pipx, uv tool install, conda envs.
+    prefix_path = Path(sys.prefix) / "share" / "prose-check" / "markers.json"
+    if prefix_path.exists():
+        return prefix_path
+
+    # 3. Python package resource (future: if markers.json is bundled as package data)
     try:
         import importlib.resources as pkg_resources
-        # Python 3.9+ with files()
         if hasattr(pkg_resources, 'files'):
             pkg_path = pkg_resources.files('prose_check_data') / 'markers.json'
             if pkg_path.is_file():
@@ -61,17 +66,17 @@ def find_markers_file() -> Path:
     except (ImportError, ModuleNotFoundError, TypeError):
         pass
 
-    # 3. User data directory
+    # 4. User data directory (~/.prose-check/markers.json)
     user_data = Path.home() / ".prose-check" / "markers.json"
     if user_data.exists():
         return user_data
 
-    # 4. System data directory (Unix)
+    # 5. System-wide install (legacy; covers --target or --prefix installs to /usr/local)
     system_data = Path("/usr/local/share/prose-check/markers.json")
     if system_data.exists():
         return system_data
 
-    # Return the local path (will fail gracefully in load_markers)
+    # Fall back to local path; load_markers() will emit a clear error if absent
     return local_path
 
 
@@ -220,24 +225,120 @@ FORMULAIC_STARTERS = [
 
 # Human alternatives for common patterns
 ALTERNATIVES = {
+    # LLM-favorite words
+    "delve": "explore, examine, look at",
+    "tapestry": "mix, combination, range",
+    "multifaceted": "complex, varied",
+    "embark": "start, begin",
+    "plethora": "many, lots of",
+    "myriad": "many, numerous",
+    "aforementioned": "this, that, the",
+    "seamlessly": "smoothly, easily",
+    "meticulous": "careful, thorough",
+    "intricate": "complex, detailed",
     "comprehensive": "complete, full, thorough",
     "utilize": "use",
     "leverage": "use, apply",
-    "facilitate": "help, enable",
-    "robust": "strong, solid",
+    "paramount": "most important, critical",
+    "groundbreaking": "new, novel",
+    "synergy": "(delete or restate specifically)",
+    "holistic": "broad, complete, overall",
+    "impactful": "significant, effective",
+    "pivotal": "key, central, important",
+    "endeavor": "effort, attempt, try",
+    "facilitate": "help, enable, make easier",
+    "realm": "area, field",
+    "transformative": "significant, major",
+    "streamline": "simplify, improve",
+    "fostering": "building, encouraging",
+    "proactive": "active, preventive",
     "nuanced": "subtle, detailed",
+    "underscore": "show, highlight, emphasize",
+    "landscape": "field, area, situation",
     "paradigm": "model, approach",
+    "foster": "encourage, support, build",
+    "navigate": "handle, manage, work through",
+    "robust": "strong, solid",
+    "crucial": "important, key",
+    "vital": "essential, important",
+    "innovative": "new, original",
+    "noteworthy": "notable, worth mentioning",
+    "pivotal": "key, central",
+    "holistic": "broad, complete",
+    "streamline": "simplify, improve",
+    "proactive": "active",
+    # Hedging phrases
+    "it's important to note": "(delete)",
+    "it is important to note": "(delete)",
+    "it's worth noting": "(delete)",
+    "it is worth noting": "(delete)",
+    "it should be noted": "(delete)",
+    "it is worth mentioning": "(delete)",
+    "needless to say": "(delete)",
+    "it goes without saying": "(delete)",
+    "that being said": "but, however",
+    "having said that": "but, however",
+    "with that in mind": "so, given this",
+    "generally speaking": "usually (or delete)",
+    "in many cases": "often (or delete)",
+    # Filler phrases
+    "in order to": "to",
+    "due to the fact that": "because",
+    "at the end of the day": "ultimately (or delete)",
+    "in today's world": "(delete)",
+    "in the realm of": "in",
+    "when it comes to": "for, with",
+    "serves as a": "is a",
+    "plays a crucial role": "is important, matters",
+    "plays a key role": "is important, matters",
+    "in terms of": "for, regarding (or delete)",
+    "with respect to": "for, about",
+    "at this point in time": "now",
+    "for all intents and purposes": "effectively (or delete)",
+    "the fact that": "that (or restructure)",
+    # Structure phrases
+    "let's dive into": "(delete, just start the content)",
+    "let's explore": "(delete, just start the content)",
+    "let's delve into": "(delete, just start the content)",
+    "let me explain": "(delete)",
+    "let's break this down": "(delete, just break it down)",
+    "here's the thing": "(delete)",
+    "first and foremost": "first",
+    "last but not least": "finally, also",
+    "let's look at": "(delete, just look at it)",
+    # Conclusion phrases
     "in essence": "basically (or delete)",
     "fundamentally": "basically (or delete)",
     "essentially": "basically (or delete)",
+    "at its core": "basically (or delete)",
+    "in summary": "(delete or just summarize)",
+    "in conclusion": "(delete)",
+    "to summarize": "(delete or just state it)",
+    "all in all": "overall (or delete)",
+    "overall": "(or delete if implied)",
+    "ultimately": "(or delete if implied)",
+    # Emphasis
+    "absolutely": "(delete)",
+    "undoubtedly": "(delete)",
+    "without a doubt": "(delete)",
+    "certainly": "(delete)",
+    "definitely": "(delete)",
+    "obviously": "(delete)",
+    "clearly": "(delete or show, don't tell)",
+    "of course": "(delete)",
+    "naturally": "(delete)",
+    "indeed": "(delete)",
+    # Transitions (use sparingly)
     "furthermore": "also, and",
     "moreover": "also, and",
     "additionally": "also, and",
-    "in order to": "to",
-    "due to the fact that": "because",
-    "it's important to note": "(delete)",
-    "it's worth noting": "(delete)",
-    "that being said": "but, however",
+    "conversely": "but, on the other hand",
+    "nevertheless": "still, but",
+    "nonetheless": "still, but",
+    "consequently": "so, as a result",
+    "accordingly": "so",
+    "subsequently": "then, after that",
+    "in addition": "also, and",
 }
 
 # Default configuration
