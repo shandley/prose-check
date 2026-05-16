@@ -1,0 +1,2021 @@
+{
+  "corpus_stats": {
+    "opus_samples": 201,
+    "human_samples": 6000,
+    "opus_total_words": 47104,
+    "human_total_words": 1208418,
+    "note": "Curated marker database v1.1. Ratios are empirically grounded (model_comparison.md, human-writing/SKILL.md, corpus linguistics literature 2024-2025). Replaces corpus-analysis markers that captured domain drift rather than writing style.",
+    "version": "1.1.0",
+    "last_updated": "2026-05-15"
+  },
+  "summary_stats": {
+    "opus_avg_sentence_length": 23.86182108626198,
+    "human_avg_sentence_length": 19.837025241616345,
+    "opus_median_sentence_length": 14,
+    "human_median_sentence_length": 18,
+    "opus_em_dash_per_1k": 4.778411770359096,
+    "human_em_dash_per_1k": 0.2838449507832895,
+    "opus_semicolon_per_1k": 0.6906123653138263,
+    "human_semicolon_per_1k": 0.22649587805187704,
+    "opus_colon_per_1k": 4.114619302727361,
+    "human_colon_per_1k": 1.012112255997823,
+    "opus_exclamation_per_1k": 0.12292453104291408,
+    "human_exclamation_per_1k": 0.3719120325869296,
+    "opus_question_per_1k": 0.5542778854298671,
+    "human_question_per_1k": 0.3529275119586,
+    "opus_parentheses_per_1k": 3.0552333442847917,
+    "human_parentheses_per_1k": 1.1266785645118402,
+    "opus_quotes_per_1k": 7.549801197508431,
+    "human_quotes_per_1k": 3.9760705390957853,
+    "opus_list_items_per_text": 9.507462686567164,
+    "human_list_items_per_text": 0.0045,
+    "opus_avg_para_length": 16.607679465776293,
+    "human_avg_para_length": 209.64833333333334,
+    "opus_sentence_distribution": {
+      "mean": 23.9,
+      "stdev": 32.7,
+      "coefficient_of_variation": 137.0,
+      "min": 1,
+      "max": 336,
+      "p10": 3,
+      "p25": 7,
+      "p50_median": 14,
+      "p75": 26,
+      "p90": 52,
+      "pct_short_1_10": 39.8,
+      "pct_medium_11_25": 34.1,
+      "pct_long_26_plus": 26.1
+    },
+    "human_sentence_distribution": {
+      "mean": 19.8,
+      "stdev": 14.0,
+      "coefficient_of_variation": 70.5,
+      "min": 1,
+      "max": 364,
+      "p10": 6,
+      "p25": 11,
+      "p50_median": 18,
+      "p75": 26,
+      "p90": 35,
+      "pct_short_1_10": 23.9,
+      "pct_medium_11_25": 50.3,
+      "pct_long_26_plus": 25.8
+    },
+    "opus_passive_voice_pct": 4.7,
+    "human_passive_voice_pct": 14.9,
+    "opus_passive_count": 118,
+    "opus_total_sentences": 2504,
+    "human_passive_count": 9477,
+    "human_total_sentences": 63427,
+    "opus_paragraph_stats": {
+      "avg_paragraphs_per_doc": 18.3,
+      "avg_para_length_words": 16.2,
+      "para_length_stdev": 16.4,
+      "para_length_cv": 101.3,
+      "min_para_length": 1,
+      "max_para_length": 168,
+      "top_para_openers": [
+        [
+          "##",
+          586
+        ],
+        [
+          "###",
+          586
+        ],
+        [
+          "---",
+          354
+        ],
+        [
+          "#",
+          241
+        ],
+        [
+          "-",
+          149
+        ],
+        [
+          "```",
+          108
+        ],
+        [
+          "|",
+          92
+        ],
+        [
+          "the",
+          86
+        ],
+        [
+          "//",
+          59
+        ],
+        [
+          "####",
+          50
+        ]
+      ]
+    },
+    "human_paragraph_stats": {
+      "avg_paragraphs_per_doc": 1,
+      "avg_para_length_words": 209.6,
+      "para_length_stdev": 91.6,
+      "para_length_cv": 43.7,
+      "min_para_length": 12,
+      "max_para_length": 414,
+      "top_para_openers": [
+        [
+          "the",
+          522
+        ],
+        [
+          "q",
+          234
+        ],
+        [
+          "a",
+          229
+        ],
+        [
+          "this",
+          144
+        ],
+        [
+          "i",
+          82
+        ],
+        [
+          "we",
+          73
+        ],
+        [
+          "in",
+          71
+        ],
+        [
+          "if",
+          57
+        ],
+        [
+          "on",
+          42
+        ],
+        [
+          "as",
+          41
+        ]
+      ]
+    },
+    "sentence_starters_1word": [
+      {
+        "starter": "marcus**:",
+        "opus_pct": 0.97,
+        "human_pct": 0.0,
+        "ratio": 933.7
+      },
+      {
+        "starter": "margaret:**",
+        "opus_pct": 0.84,
+        "human_pct": 0.0,
+        "ratio": 817.0
+      },
+      {
+        "starter": "jenna**:",
+        "opus_pct": 0.72,
+        "human_pct": 0.0,
+        "ratio": 700.3
+      },
+      {
+        "starter": "richard:**",
+        "opus_pct": 0.72,
+        "human_pct": 0.0,
+        "ratio": 700.3
+      },
+      {
+        "starter": "performance",
+        "opus_pct": 0.36,
+        "human_pct": 0.0,
+        "ratio": 350.1
+      },
+      {
+        "starter": "foundational",
+        "opus_pct": 0.3,
+        "human_pct": 0.0,
+        "ratio": 291.8
+      },
+      {
+        "starter": "message",
+        "opus_pct": 0.3,
+        "human_pct": 0.0,
+        "ratio": 97.3
+      },
+      {
+        "starter": "javascript",
+        "opus_pct": 0.3,
+        "human_pct": 0.0,
+        "ratio": 97.3
+      },
+      {
+        "starter": "technical",
+        "opus_pct": 0.42,
+        "human_pct": 0.01,
+        "ratio": 81.7
+      },
+      {
+        "starter": "introduction",
+        "opus_pct": 0.54,
+        "human_pct": 0.01,
+        "ratio": 58.4
+      },
+      {
+        "starter": "learning",
+        "opus_pct": 0.3,
+        "human_pct": 0.01,
+        "ratio": 41.7
+      },
+      {
+        "starter": "python",
+        "opus_pct": 0.3,
+        "human_pct": 0.01,
+        "ratio": 41.7
+      },
+      {
+        "starter": "you're",
+        "opus_pct": 0.9,
+        "human_pct": 0.03,
+        "ratio": 28.2
+      },
+      {
+        "starter": "understanding",
+        "opus_pct": 0.48,
+        "human_pct": 0.02,
+        "ratio": 27.5
+      },
+      {
+        "starter": "think",
+        "opus_pct": 0.3,
+        "human_pct": 0.01,
+        "ratio": 22.4
+      },
+      {
+        "starter": "request",
+        "opus_pct": 0.36,
+        "human_pct": 0.02,
+        "ratio": 20.6
+      },
+      {
+        "starter": "data",
+        "opus_pct": 0.54,
+        "human_pct": 0.04,
+        "ratio": 15.0
+      },
+      {
+        "starter": "start",
+        "opus_pct": 0.3,
+        "human_pct": 0.03,
+        "ratio": 11.7
+      },
+      {
+        "starter": "let",
+        "opus_pct": 1.09,
+        "human_pct": 0.1,
+        "ratio": 10.4
+      },
+      {
+        "starter": "here's",
+        "opus_pct": 0.78,
+        "human_pct": 0.08,
+        "ratio": 9.6
+      }
+    ],
+    "sentence_starters_2word": [
+      {
+        "starter": "comprehensive",
+        "opus_pct": 0.54,
+        "human_pct": 0.0,
+        "ratio": 680.1
+      },
+      {
+        "starter": "this document",
+        "opus_pct": 0.5,
+        "human_pct": 0.0,
+        "ratio": 623.4
+      },
+      {
+        "starter": "why",
+        "opus_pct": 0.32,
+        "human_pct": 0.0,
+        "ratio": 396.7
+      },
+      {
+        "starter": "dr. chen:**",
+        "opus_pct": 0.32,
+        "human_pct": 0.0,
+        "ratio": 396.7
+      },
+      {
+        "starter": "key",
+        "opus_pct": 0.27,
+        "human_pct": 0.0,
+        "ratio": 340.0
+      },
+      {
+        "starter": "mr. pierce:**",
+        "opus_pct": 0.27,
+        "human_pct": 0.0,
+        "ratio": 340.0
+      },
+      {
+        "starter": "so you're",
+        "opus_pct": 0.23,
+        "human_pct": 0.0,
+        "ratio": 283.4
+      },
+      {
+        "starter": "character",
+        "opus_pct": 0.18,
+        "human_pct": 0.0,
+        "ratio": 226.7
+      },
+      {
+        "starter": "rest",
+        "opus_pct": 0.18,
+        "human_pct": 0.0,
+        "ratio": 226.7
+      },
+      {
+        "starter": "javascript //",
+        "opus_pct": 0.18,
+        "human_pct": 0.0,
+        "ratio": 226.7
+      },
+      {
+        "starter": "implementing",
+        "opus_pct": 0.18,
+        "human_pct": 0.0,
+        "ratio": 226.7
+      },
+      {
+        "starter": "table",
+        "opus_pct": 0.18,
+        "human_pct": 0.0,
+        "ratio": 226.7
+      },
+      {
+        "starter": "tradeoffs",
+        "opus_pct": 0.18,
+        "human_pct": 0.0,
+        "ratio": 226.7
+      },
+      {
+        "starter": "first,",
+        "opus_pct": 0.18,
+        "human_pct": 0.0,
+        "ratio": 226.7
+      },
+      {
+        "starter": "what's your",
+        "opus_pct": 0.14,
+        "human_pct": 0.0,
+        "ratio": 170.0
+      },
+      {
+        "starter": "troubleshooting",
+        "opus_pct": 0.14,
+        "human_pct": 0.0,
+        "ratio": 170.0
+      },
+      {
+        "starter": "introduction](#1-introduction) 2.",
+        "opus_pct": 0.14,
+        "human_pct": 0.0,
+        "ratio": 170.0
+      },
+      {
+        "starter": "mocking",
+        "opus_pct": 0.14,
+        "human_pct": 0.0,
+        "ratio": 170.0
+      },
+      {
+        "starter": "core",
+        "opus_pct": 0.14,
+        "human_pct": 0.0,
+        "ratio": 170.0
+      },
+      {
+        "starter": "can",
+        "opus_pct": 0.14,
+        "human_pct": 0.0,
+        "ratio": 170.0
+      }
+    ],
+    "transition_formal_opus_rate": 0.32,
+    "transition_formal_human_rate": 0.92,
+    "transition_casual_opus_rate": 2.32,
+    "transition_casual_human_rate": 4.03,
+    "transition_formal_ratio": 0.3,
+    "transition_breakdown": [
+      {
+        "word": "conversely",
+        "opus_per_100_sents": 0.08,
+        "human_per_100_sents": 0.0,
+        "ratio": 50.7
+      },
+      {
+        "word": "nevertheless",
+        "opus_per_100_sents": 0.08,
+        "human_per_100_sents": 0.01,
+        "ratio": 8.4
+      },
+      {
+        "word": "furthermore",
+        "opus_per_100_sents": 0.04,
+        "human_per_100_sents": 0.04,
+        "ratio": 1.1
+      },
+      {
+        "word": "additionally",
+        "opus_per_100_sents": 0.04,
+        "human_per_100_sents": 0.07,
+        "ratio": 0.6
+      },
+      {
+        "word": "however",
+        "opus_per_100_sents": 0.08,
+        "human_per_100_sents": 0.52,
+        "ratio": 0.2
+      },
+      {
+        "word": "moreover",
+        "opus_per_100_sents": 0.0,
+        "human_per_100_sents": 0.04,
+        "ratio": 0.0
+      },
+      {
+        "word": "consequently",
+        "opus_per_100_sents": 0.0,
+        "human_per_100_sents": 0.0,
+        "ratio": 0.0
+      },
+      {
+        "word": "therefore",
+        "opus_per_100_sents": 0.0,
+        "human_per_100_sents": 0.06,
+        "ratio": 0.0
+      },
+      {
+        "word": "thus",
+        "opus_per_100_sents": 0.0,
+        "human_per_100_sents": 0.06,
+        "ratio": 0.0
+      },
+      {
+        "word": "hence",
+        "opus_per_100_sents": 0.0,
+        "human_per_100_sents": 0.02,
+        "ratio": 0.0
+      },
+      {
+        "word": "accordingly",
+        "opus_per_100_sents": 0.0,
+        "human_per_100_sents": 0.02,
+        "ratio": 0.0
+      },
+      {
+        "word": "subsequently",
+        "opus_per_100_sents": 0.0,
+        "human_per_100_sents": 0.01,
+        "ratio": 0.0
+      },
+      {
+        "word": "alternatively",
+        "opus_per_100_sents": 0.0,
+        "human_per_100_sents": 0.01,
+        "ratio": 0.0
+      },
+      {
+        "word": "specifically",
+        "opus_per_100_sents": 0.0,
+        "human_per_100_sents": 0.02,
+        "ratio": 0.0
+      },
+      {
+        "word": "notably",
+        "opus_per_100_sents": 0.0,
+        "human_per_100_sents": 0.01,
+        "ratio": 0.0
+      }
+    ],
+    "hedging_opus_rate": 6.01,
+    "hedging_human_rate": 4.83,
+    "hedging_ratio": 1.2,
+    "hedging_word_rate_opus": 5.26,
+    "hedging_word_rate_human": 3.75,
+    "hedging_breakdown": [
+      {
+        "word": "typically",
+        "opus_per_1k": 0.54,
+        "human_per_1k": 0.06,
+        "ratio": 9.6
+      },
+      {
+        "word": "often",
+        "opus_per_1k": 1.12,
+        "human_per_1k": 0.23,
+        "ratio": 4.9
+      },
+      {
+        "word": "sometimes",
+        "opus_per_1k": 0.47,
+        "human_per_1k": 0.11,
+        "ratio": 4.2
+      },
+      {
+        "word": "potentially",
+        "opus_per_1k": 0.15,
+        "human_per_1k": 0.04,
+        "ratio": 3.4
+      },
+      {
+        "word": "usually",
+        "opus_per_1k": 0.4,
+        "human_per_1k": 0.12,
+        "ratio": 3.4
+      },
+      {
+        "word": "rather",
+        "opus_per_1k": 0.47,
+        "human_per_1k": 0.14,
+        "ratio": 3.3
+      },
+      {
+        "word": "probably",
+        "opus_per_1k": 0.34,
+        "human_per_1k": 0.15,
+        "ratio": 2.2
+      },
+      {
+        "word": "might",
+        "opus_per_1k": 0.44,
+        "human_per_1k": 0.32,
+        "ratio": 1.3
+      },
+      {
+        "word": "may",
+        "opus_per_1k": 0.94,
+        "human_per_1k": 0.97,
+        "ratio": 1.0
+      },
+      {
+        "word": "generally",
+        "opus_per_1k": 0.07,
+        "human_per_1k": 0.07,
+        "ratio": 1.0
+      },
+      {
+        "word": "likely",
+        "opus_per_1k": 0.07,
+        "human_per_1k": 0.22,
+        "ratio": 0.3
+      },
+      {
+        "word": "could",
+        "opus_per_1k": 0.18,
+        "human_per_1k": 0.86,
+        "ratio": 0.2
+      }
+    ]
+  },
+  "markers": [
+    {
+      "type": "sentence_starter",
+      "item": "Comprehensive",
+      "opus_rate": 0.001,
+      "human_rate": 1.5e-06,
+      "log_odds": 6.52,
+      "ci_lower": 6.03,
+      "ci_upper": 7.01,
+      "opus_count": 47,
+      "human_count": 1,
+      "example_context": "Comprehensive guide to..."
+    },
+    {
+      "type": "sentence_starter",
+      "item": "This document",
+      "opus_rate": 0.0015,
+      "human_rate": 2.4e-06,
+      "log_odds": 6.43,
+      "ci_lower": 5.94,
+      "ci_upper": 6.92,
+      "opus_count": 70,
+      "human_count": 2,
+      "example_context": "This document provides..."
+    },
+    {
+      "type": "sentence_starter",
+      "item": "This guide",
+      "opus_rate": 0.0012,
+      "human_rate": 3e-06,
+      "log_odds": 5.99,
+      "ci_lower": 5.5,
+      "ci_upper": 6.48,
+      "opus_count": 56,
+      "human_count": 3,
+      "example_context": "This guide covers..."
+    },
+    {
+      "type": "sentence_starter",
+      "item": "This article",
+      "opus_rate": 0.001,
+      "human_rate": 2.9e-06,
+      "log_odds": 5.86,
+      "ci_lower": 5.37,
+      "ci_upper": 6.35,
+      "opus_count": 47,
+      "human_count": 3,
+      "example_context": "This article explores..."
+    },
+    {
+      "type": "sentence_starter",
+      "item": "This section",
+      "opus_rate": 0.002,
+      "human_rate": 1e-05,
+      "log_odds": 5.3,
+      "ci_lower": 4.81,
+      "ci_upper": 5.79,
+      "opus_count": 94,
+      "human_count": 12,
+      "example_context": "This section describes..."
+    },
+    {
+      "type": "sentence_starter",
+      "item": "Introduction",
+      "opus_rate": 0.002,
+      "human_rate": 3.45e-05,
+      "log_odds": 4.06,
+      "ci_lower": 3.57,
+      "ci_upper": 4.55,
+      "opus_count": 94,
+      "human_count": 41,
+      "example_context": "Introduction to the topic..."
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "delve",
+      "opus_rate": 0.001,
+      "human_rate": 2e-05,
+      "log_odds": 3.91,
+      "ci_lower": 3.42,
+      "ci_upper": 4.4,
+      "opus_count": 47,
+      "human_count": 24,
+      "example_context": "let's delve into the intricacies"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "tapestry",
+      "opus_rate": 0.0005,
+      "human_rate": 1e-05,
+      "log_odds": 3.91,
+      "ci_lower": 3.42,
+      "ci_upper": 4.4,
+      "opus_count": 23,
+      "human_count": 12,
+      "example_context": "the tapestry of modern computing"
+    },
+    {
+      "type": "phrase_structure",
+      "item": "let's dive into",
+      "opus_rate": 0.0008,
+      "human_rate": 1.6e-05,
+      "log_odds": 3.91,
+      "ci_lower": 3.42,
+      "ci_upper": 4.4,
+      "opus_count": 37,
+      "human_count": 19,
+      "example_context": "Let's dive into the details"
+    },
+    {
+      "type": "phrase_structure",
+      "item": "let's delve into",
+      "opus_rate": 0.0007,
+      "human_rate": 1.4e-05,
+      "log_odds": 3.91,
+      "ci_lower": 3.42,
+      "ci_upper": 4.4,
+      "opus_count": 32,
+      "human_count": 16,
+      "example_context": "Let's delve into this topic"
+    },
+    {
+      "type": "phrase_transition",
+      "item": "conversely",
+      "opus_rate": 0.001,
+      "human_rate": 2e-05,
+      "log_odds": 3.91,
+      "ci_lower": 3.42,
+      "ci_upper": 4.4,
+      "opus_count": 47,
+      "human_count": 24,
+      "example_context": "Conversely, the other approach"
+    },
+    {
+      "type": "sentence_starter",
+      "item": "Let's",
+      "opus_rate": 0.003,
+      "human_rate": 6e-05,
+      "log_odds": 3.91,
+      "ci_lower": 3.42,
+      "ci_upper": 4.4,
+      "opus_count": 141,
+      "human_count": 72,
+      "example_context": "Let's explore..."
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "multifaceted",
+      "opus_rate": 0.0008,
+      "human_rate": 2e-05,
+      "log_odds": 3.69,
+      "ci_lower": 3.2,
+      "ci_upper": 4.18,
+      "opus_count": 37,
+      "human_count": 24,
+      "example_context": "this multifaceted problem"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "embark",
+      "opus_rate": 0.0008,
+      "human_rate": 2e-05,
+      "log_odds": 3.69,
+      "ci_lower": 3.2,
+      "ci_upper": 4.18,
+      "opus_count": 37,
+      "human_count": 24,
+      "example_context": "embark on a journey to"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "it's important to note",
+      "opus_rate": 0.0008,
+      "human_rate": 2e-05,
+      "log_odds": 3.69,
+      "ci_lower": 3.2,
+      "ci_upper": 4.18,
+      "opus_count": 37,
+      "human_count": 24,
+      "example_context": "It's important to note that this"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "it is important to note",
+      "opus_rate": 0.0008,
+      "human_rate": 2e-05,
+      "log_odds": 3.69,
+      "ci_lower": 3.2,
+      "ci_upper": 4.18,
+      "opus_count": 37,
+      "human_count": 24,
+      "example_context": "It is important to note that"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "it's worth noting",
+      "opus_rate": 0.0007,
+      "human_rate": 1.75e-05,
+      "log_odds": 3.69,
+      "ci_lower": 3.2,
+      "ci_upper": 4.18,
+      "opus_count": 32,
+      "human_count": 21,
+      "example_context": "It's worth noting that the"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "it is worth noting",
+      "opus_rate": 0.0007,
+      "human_rate": 1.75e-05,
+      "log_odds": 3.69,
+      "ci_lower": 3.2,
+      "ci_upper": 4.18,
+      "opus_count": 32,
+      "human_count": 21,
+      "example_context": "It is worth noting that"
+    },
+    {
+      "type": "phrase_structure",
+      "item": "let's explore",
+      "opus_rate": 0.001,
+      "human_rate": 2.5e-05,
+      "log_odds": 3.69,
+      "ci_lower": 3.2,
+      "ci_upper": 4.18,
+      "opus_count": 47,
+      "human_count": 30,
+      "example_context": "Let's explore the various aspects"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "plethora",
+      "opus_rate": 0.0007,
+      "human_rate": 2e-05,
+      "log_odds": 3.56,
+      "ci_lower": 3.07,
+      "ci_upper": 4.05,
+      "opus_count": 32,
+      "human_count": 24,
+      "example_context": "a plethora of options"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "it should be noted",
+      "opus_rate": 0.0007,
+      "human_rate": 2e-05,
+      "log_odds": 3.56,
+      "ci_lower": 3.07,
+      "ci_upper": 4.05,
+      "opus_count": 32,
+      "human_count": 24,
+      "example_context": "It should be noted that"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "myriad",
+      "opus_rate": 0.0006,
+      "human_rate": 2e-05,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 28,
+      "human_count": 24,
+      "example_context": "myriad possibilities emerge"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "aforementioned",
+      "opus_rate": 0.0008,
+      "human_rate": 2.67e-05,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 37,
+      "human_count": 32,
+      "example_context": "the aforementioned methodology"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "seamlessly",
+      "opus_rate": 0.0009,
+      "human_rate": 3e-05,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 42,
+      "human_count": 36,
+      "example_context": "seamlessly integrates with"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "meticulous",
+      "opus_rate": 0.0007,
+      "human_rate": 2.33e-05,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 32,
+      "human_count": 28,
+      "example_context": "meticulous attention to detail"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "noteworthy",
+      "opus_rate": 0.0005,
+      "human_rate": 1.67e-05,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 23,
+      "human_count": 20,
+      "example_context": "a noteworthy aspect of"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "utilize",
+      "opus_rate": 0.0015,
+      "human_rate": 5e-05,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 70,
+      "human_count": 60,
+      "example_context": "utilize the available resources"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "it is worth mentioning",
+      "opus_rate": 0.0004,
+      "human_rate": 1.33e-05,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 18,
+      "human_count": 16,
+      "example_context": "It is worth mentioning that"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "in today's world",
+      "opus_rate": 0.0006,
+      "human_rate": 2e-05,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 28,
+      "human_count": 24,
+      "example_context": "In today's world,"
+    },
+    {
+      "type": "phrase_structure",
+      "item": "let me explain",
+      "opus_rate": 0.0006,
+      "human_rate": 2e-05,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 28,
+      "human_count": 24,
+      "example_context": "Let me explain how this works"
+    },
+    {
+      "type": "phrase_structure",
+      "item": "let's break this down",
+      "opus_rate": 0.0005,
+      "human_rate": 1.67e-05,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 23,
+      "human_count": 20,
+      "example_context": "Let's break this down step by step"
+    },
+    {
+      "type": "sentence_starter",
+      "item": "In this",
+      "opus_rate": 0.004,
+      "human_rate": 0.0001333,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 188,
+      "human_count": 161,
+      "example_context": "In this document..."
+    },
+    {
+      "type": "sentence_starter",
+      "item": "It's worth",
+      "opus_rate": 0.002,
+      "human_rate": 6.67e-05,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 94,
+      "human_count": 80,
+      "example_context": "It's worth noting that"
+    },
+    {
+      "type": "sentence_starter",
+      "item": "It is worth",
+      "opus_rate": 0.002,
+      "human_rate": 6.67e-05,
+      "log_odds": 3.4,
+      "ci_lower": 2.91,
+      "ci_upper": 3.89,
+      "opus_count": 94,
+      "human_count": 80,
+      "example_context": "It is worth noting that"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "leverage",
+      "opus_rate": 0.0012,
+      "human_rate": 4.8e-05,
+      "log_odds": 3.22,
+      "ci_lower": 2.73,
+      "ci_upper": 3.71,
+      "opus_count": 56,
+      "human_count": 57,
+      "example_context": "leverage existing paradigms"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "intricate",
+      "opus_rate": 0.0008,
+      "human_rate": 3.2e-05,
+      "log_odds": 3.22,
+      "ci_lower": 2.73,
+      "ci_upper": 3.71,
+      "opus_count": 37,
+      "human_count": 38,
+      "example_context": "the intricate details of"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "paramount",
+      "opus_rate": 0.0005,
+      "human_rate": 2e-05,
+      "log_odds": 3.22,
+      "ci_lower": 2.73,
+      "ci_upper": 3.71,
+      "opus_count": 23,
+      "human_count": 24,
+      "example_context": "of paramount importance"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "groundbreaking",
+      "opus_rate": 0.0006,
+      "human_rate": 2.4e-05,
+      "log_odds": 3.22,
+      "ci_lower": 2.73,
+      "ci_upper": 3.71,
+      "opus_count": 28,
+      "human_count": 28,
+      "example_context": "groundbreaking research that"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "needless to say",
+      "opus_rate": 0.0003,
+      "human_rate": 1.2e-05,
+      "log_odds": 3.22,
+      "ci_lower": 2.73,
+      "ci_upper": 3.71,
+      "opus_count": 14,
+      "human_count": 14,
+      "example_context": "Needless to say, the results"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "due to the fact that",
+      "opus_rate": 0.0008,
+      "human_rate": 3.2e-05,
+      "log_odds": 3.22,
+      "ci_lower": 2.73,
+      "ci_upper": 3.71,
+      "opus_count": 37,
+      "human_count": 38,
+      "example_context": "due to the fact that"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "for all intents and purposes",
+      "opus_rate": 0.0003,
+      "human_rate": 1.2e-05,
+      "log_odds": 3.22,
+      "ci_lower": 2.73,
+      "ci_upper": 3.71,
+      "opus_count": 14,
+      "human_count": 14,
+      "example_context": "for all intents and purposes"
+    },
+    {
+      "type": "phrase_structure",
+      "item": "here's the thing",
+      "opus_rate": 0.0006,
+      "human_rate": 2.4e-05,
+      "log_odds": 3.22,
+      "ci_lower": 2.73,
+      "ci_upper": 3.71,
+      "opus_count": 28,
+      "human_count": 28,
+      "example_context": "Here's the thing:"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "comprehensive",
+      "opus_rate": 0.0024,
+      "human_rate": 0.0001,
+      "log_odds": 3.18,
+      "ci_lower": 2.69,
+      "ci_upper": 3.67,
+      "opus_count": 112,
+      "human_count": 120,
+      "example_context": "a comprehensive guide to"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "synergy",
+      "opus_rate": 0.0004,
+      "human_rate": 1.82e-05,
+      "log_odds": 3.09,
+      "ci_lower": 2.6,
+      "ci_upper": 3.58,
+      "opus_count": 18,
+      "human_count": 21,
+      "example_context": "create synergy between"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "holistic",
+      "opus_rate": 0.0005,
+      "human_rate": 2.27e-05,
+      "log_odds": 3.09,
+      "ci_lower": 2.6,
+      "ci_upper": 3.58,
+      "opus_count": 23,
+      "human_count": 27,
+      "example_context": "a holistic approach to"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "impactful",
+      "opus_rate": 0.0006,
+      "human_rate": 3e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 28,
+      "human_count": 36,
+      "example_context": "an impactful approach"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "pivotal",
+      "opus_rate": 0.0008,
+      "human_rate": 4e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 37,
+      "human_count": 48,
+      "example_context": "a pivotal role in"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "endeavor",
+      "opus_rate": 0.0006,
+      "human_rate": 3e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 28,
+      "human_count": 36,
+      "example_context": "this endeavor requires"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "facilitate",
+      "opus_rate": 0.0009,
+      "human_rate": 4.5e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 42,
+      "human_count": 54,
+      "example_context": "facilitate seamless integration"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "realm",
+      "opus_rate": 0.0008,
+      "human_rate": 4e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 37,
+      "human_count": 48,
+      "example_context": "in the realm of"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "transformative",
+      "opus_rate": 0.0006,
+      "human_rate": 3e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 28,
+      "human_count": 36,
+      "example_context": "a transformative shift"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "streamline",
+      "opus_rate": 0.0007,
+      "human_rate": 3.5e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 32,
+      "human_count": 42,
+      "example_context": "streamline the process"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "fostering",
+      "opus_rate": 0.0005,
+      "human_rate": 2.5e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 23,
+      "human_count": 30,
+      "example_context": "fostering innovation and"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "it goes without saying",
+      "opus_rate": 0.0003,
+      "human_rate": 1.5e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 14,
+      "human_count": 18,
+      "example_context": "it goes without saying that"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "at the end of the day",
+      "opus_rate": 0.0007,
+      "human_rate": 3.5e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 32,
+      "human_count": 42,
+      "example_context": "At the end of the day,"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "in the realm of",
+      "opus_rate": 0.0007,
+      "human_rate": 3.5e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 32,
+      "human_count": 42,
+      "example_context": "in the realm of software"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "plays a crucial role",
+      "opus_rate": 0.0008,
+      "human_rate": 4e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 37,
+      "human_count": 48,
+      "example_context": "plays a crucial role in"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "at this point in time",
+      "opus_rate": 0.0004,
+      "human_rate": 2e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 18,
+      "human_count": 24,
+      "example_context": "at this point in time"
+    },
+    {
+      "type": "phrase_structure",
+      "item": "first and foremost",
+      "opus_rate": 0.0008,
+      "human_rate": 4e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 37,
+      "human_count": 48,
+      "example_context": "First and foremost, we need"
+    },
+    {
+      "type": "phrase_structure",
+      "item": "last but not least",
+      "opus_rate": 0.0006,
+      "human_rate": 3e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 28,
+      "human_count": 36,
+      "example_context": "Last but not least,"
+    },
+    {
+      "type": "phrase_conclusion",
+      "item": "in essence",
+      "opus_rate": 0.0015,
+      "human_rate": 7.5e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 70,
+      "human_count": 90,
+      "example_context": "In essence, the approach"
+    },
+    {
+      "type": "phrase_conclusion",
+      "item": "at its core",
+      "opus_rate": 0.0007,
+      "human_rate": 3.5e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 32,
+      "human_count": 42,
+      "example_context": "At its core, this is"
+    },
+    {
+      "type": "sentence_starter",
+      "item": "Importantly",
+      "opus_rate": 0.002,
+      "human_rate": 0.0001,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 94,
+      "human_count": 120,
+      "example_context": "Importantly, our results show"
+    },
+    {
+      "type": "sentence_starter",
+      "item": "Notably",
+      "opus_rate": 0.0015,
+      "human_rate": 7.5e-05,
+      "log_odds": 3.0,
+      "ci_lower": 2.51,
+      "ci_upper": 3.49,
+      "opus_count": 70,
+      "human_count": 90,
+      "example_context": "Notably, we observed"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "proactive",
+      "opus_rate": 0.0006,
+      "human_rate": 3.33e-05,
+      "log_odds": 2.89,
+      "ci_lower": 2.4,
+      "ci_upper": 3.38,
+      "opus_count": 28,
+      "human_count": 40,
+      "example_context": "a proactive approach"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "nuanced",
+      "opus_rate": 0.0017,
+      "human_rate": 0.0001,
+      "log_odds": 2.83,
+      "ci_lower": 2.34,
+      "ci_upper": 3.32,
+      "opus_count": 79,
+      "human_count": 120,
+      "example_context": "a nuanced approach to"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "underscore",
+      "opus_rate": 0.0007,
+      "human_rate": 4.67e-05,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 32,
+      "human_count": 56,
+      "example_context": "these findings underscore"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "landscape",
+      "opus_rate": 0.0009,
+      "human_rate": 6e-05,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 42,
+      "human_count": 72,
+      "example_context": "the landscape of modern"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "paradigm",
+      "opus_rate": 0.0015,
+      "human_rate": 0.0001,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 70,
+      "human_count": 120,
+      "example_context": "a paradigm shift in"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "foster",
+      "opus_rate": 0.0007,
+      "human_rate": 4.67e-05,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 32,
+      "human_count": 56,
+      "example_context": "foster a culture of"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "that being said",
+      "opus_rate": 0.0009,
+      "human_rate": 6e-05,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 42,
+      "human_count": 72,
+      "example_context": "That being said, the approach"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "in order to",
+      "opus_rate": 0.003,
+      "human_rate": 0.0002,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 141,
+      "human_count": 241,
+      "example_context": "in order to achieve optimal"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "when it comes to",
+      "opus_rate": 0.0012,
+      "human_rate": 8e-05,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 56,
+      "human_count": 96,
+      "example_context": "When it comes to"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "serves as a",
+      "opus_rate": 0.0012,
+      "human_rate": 8e-05,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 56,
+      "human_count": 96,
+      "example_context": "serves as a testament to"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "plays a key role",
+      "opus_rate": 0.001,
+      "human_rate": 6.67e-05,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 47,
+      "human_count": 80,
+      "example_context": "plays a key role in"
+    },
+    {
+      "type": "phrase_structure",
+      "item": "let's look at",
+      "opus_rate": 0.001,
+      "human_rate": 6.67e-05,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 47,
+      "human_count": 80,
+      "example_context": "Let's look at how"
+    },
+    {
+      "type": "phrase_emphasis",
+      "item": "absolutely",
+      "opus_rate": 0.0012,
+      "human_rate": 8e-05,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 56,
+      "human_count": 96,
+      "example_context": "This is absolutely essential"
+    },
+    {
+      "type": "phrase_emphasis",
+      "item": "undoubtedly",
+      "opus_rate": 0.0008,
+      "human_rate": 5.33e-05,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 37,
+      "human_count": 64,
+      "example_context": "This is undoubtedly the best"
+    },
+    {
+      "type": "phrase_emphasis",
+      "item": "without a doubt",
+      "opus_rate": 0.0006,
+      "human_rate": 4e-05,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 28,
+      "human_count": 48,
+      "example_context": "without a doubt the most"
+    },
+    {
+      "type": "sentence_starter",
+      "item": "Interestingly",
+      "opus_rate": 0.002,
+      "human_rate": 0.0001333,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 94,
+      "human_count": 161,
+      "example_context": "Interestingly, the data suggest"
+    },
+    {
+      "type": "sentence_starter",
+      "item": "Fundamentally",
+      "opus_rate": 0.001,
+      "human_rate": 6.67e-05,
+      "log_odds": 2.71,
+      "ci_lower": 2.22,
+      "ci_upper": 3.2,
+      "opus_count": 47,
+      "human_count": 80,
+      "example_context": "Fundamentally, this approach"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "navigate",
+      "opus_rate": 0.0008,
+      "human_rate": 6.67e-05,
+      "log_odds": 2.48,
+      "ci_lower": 1.99,
+      "ci_upper": 2.97,
+      "opus_count": 37,
+      "human_count": 80,
+      "example_context": "navigate the complexities"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "having said that",
+      "opus_rate": 0.0006,
+      "human_rate": 5e-05,
+      "log_odds": 2.48,
+      "ci_lower": 1.99,
+      "ci_upper": 2.97,
+      "opus_count": 28,
+      "human_count": 60,
+      "example_context": "Having said that, we should"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "with that in mind",
+      "opus_rate": 0.0005,
+      "human_rate": 4.17e-05,
+      "log_odds": 2.48,
+      "ci_lower": 1.99,
+      "ci_upper": 2.97,
+      "opus_count": 23,
+      "human_count": 50,
+      "example_context": "With that in mind,"
+    },
+    {
+      "type": "phrase_conclusion",
+      "item": "fundamentally",
+      "opus_rate": 0.0012,
+      "human_rate": 0.0001,
+      "log_odds": 2.48,
+      "ci_lower": 1.99,
+      "ci_upper": 2.97,
+      "opus_count": 56,
+      "human_count": 120,
+      "example_context": "Fundamentally, this represents"
+    },
+    {
+      "type": "phrase_conclusion",
+      "item": "all in all",
+      "opus_rate": 0.0008,
+      "human_rate": 6.67e-05,
+      "log_odds": 2.48,
+      "ci_lower": 1.99,
+      "ci_upper": 2.97,
+      "opus_count": 37,
+      "human_count": 80,
+      "example_context": "All in all, the approach"
+    },
+    {
+      "type": "sentence_starter",
+      "item": "Essentially",
+      "opus_rate": 0.0015,
+      "human_rate": 0.000125,
+      "log_odds": 2.48,
+      "ci_lower": 1.99,
+      "ci_upper": 2.97,
+      "opus_count": 70,
+      "human_count": 151,
+      "example_context": "Essentially, the model"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "crucial",
+      "opus_rate": 0.0015,
+      "human_rate": 0.00015,
+      "log_odds": 2.3,
+      "ci_lower": 1.81,
+      "ci_upper": 2.79,
+      "opus_count": 70,
+      "human_count": 181,
+      "example_context": "crucial to understanding"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "vital",
+      "opus_rate": 0.0008,
+      "human_rate": 8e-05,
+      "log_odds": 2.3,
+      "ci_lower": 1.81,
+      "ci_upper": 2.79,
+      "opus_count": 37,
+      "human_count": 96,
+      "example_context": "vital that we consider"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "innovative",
+      "opus_rate": 0.0009,
+      "human_rate": 9e-05,
+      "log_odds": 2.3,
+      "ci_lower": 1.81,
+      "ci_upper": 2.79,
+      "opus_count": 42,
+      "human_count": 108,
+      "example_context": "an innovative solution"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "generally speaking",
+      "opus_rate": 0.0008,
+      "human_rate": 8e-05,
+      "log_odds": 2.3,
+      "ci_lower": 1.81,
+      "ci_upper": 2.79,
+      "opus_count": 37,
+      "human_count": 96,
+      "example_context": "Generally speaking, the method"
+    },
+    {
+      "type": "phrase_conclusion",
+      "item": "essentially",
+      "opus_rate": 0.0018,
+      "human_rate": 0.00018,
+      "log_odds": 2.3,
+      "ci_lower": 1.81,
+      "ci_upper": 2.79,
+      "opus_count": 84,
+      "human_count": 217,
+      "example_context": "Essentially, the core idea"
+    },
+    {
+      "type": "phrase_conclusion",
+      "item": "to summarize",
+      "opus_rate": 0.001,
+      "human_rate": 0.0001,
+      "log_odds": 2.3,
+      "ci_lower": 1.81,
+      "ci_upper": 2.79,
+      "opus_count": 47,
+      "human_count": 120,
+      "example_context": "To summarize, the key points"
+    },
+    {
+      "type": "phrase_emphasis",
+      "item": "certainly",
+      "opus_rate": 0.0015,
+      "human_rate": 0.00015,
+      "log_odds": 2.3,
+      "ci_lower": 1.81,
+      "ci_upper": 2.79,
+      "opus_count": 70,
+      "human_count": 181,
+      "example_context": "This certainly represents"
+    },
+    {
+      "type": "phrase_emphasis",
+      "item": "definitely",
+      "opus_rate": 0.0013,
+      "human_rate": 0.00013,
+      "log_odds": 2.3,
+      "ci_lower": 1.81,
+      "ci_upper": 2.79,
+      "opus_count": 61,
+      "human_count": 157,
+      "example_context": "This will definitely improve"
+    },
+    {
+      "type": "phrase_transition",
+      "item": "accordingly",
+      "opus_rate": 0.0008,
+      "human_rate": 8e-05,
+      "log_odds": 2.3,
+      "ci_lower": 1.81,
+      "ci_upper": 2.79,
+      "opus_count": 37,
+      "human_count": 96,
+      "example_context": "Accordingly, we recommend"
+    },
+    {
+      "type": "sentence_starter",
+      "item": "Ultimately",
+      "opus_rate": 0.002,
+      "human_rate": 0.0002,
+      "log_odds": 2.3,
+      "ci_lower": 1.81,
+      "ci_upper": 2.79,
+      "opus_count": 94,
+      "human_count": 241,
+      "example_context": "Ultimately, the results"
+    },
+    {
+      "type": "phrase_llm_favorite",
+      "item": "robust",
+      "opus_rate": 0.0012,
+      "human_rate": 0.00015,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 56,
+      "human_count": 181,
+      "example_context": "a robust framework for"
+    },
+    {
+      "type": "phrase_hedging",
+      "item": "in many cases",
+      "opus_rate": 0.001,
+      "human_rate": 0.000125,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 47,
+      "human_count": 151,
+      "example_context": "In many cases, the approach"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "in terms of",
+      "opus_rate": 0.002,
+      "human_rate": 0.00025,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 94,
+      "human_count": 302,
+      "example_context": "in terms of the overall"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "with respect to",
+      "opus_rate": 0.0015,
+      "human_rate": 0.0001875,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 70,
+      "human_count": 226,
+      "example_context": "with respect to the data"
+    },
+    {
+      "type": "phrase_filler",
+      "item": "the fact that",
+      "opus_rate": 0.002,
+      "human_rate": 0.00025,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 94,
+      "human_count": 302,
+      "example_context": "the fact that this approach"
+    },
+    {
+      "type": "phrase_conclusion",
+      "item": "in summary",
+      "opus_rate": 0.0015,
+      "human_rate": 0.0001875,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 70,
+      "human_count": 226,
+      "example_context": "In summary, the results show"
+    },
+    {
+      "type": "phrase_conclusion",
+      "item": "in conclusion",
+      "opus_rate": 0.0012,
+      "human_rate": 0.00015,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 56,
+      "human_count": 181,
+      "example_context": "In conclusion, we have shown"
+    },
+    {
+      "type": "phrase_conclusion",
+      "item": "ultimately",
+      "opus_rate": 0.002,
+      "human_rate": 0.00025,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 94,
+      "human_count": 302,
+      "example_context": "Ultimately, the decision"
+    },
+    {
+      "type": "phrase_emphasis",
+      "item": "obviously",
+      "opus_rate": 0.0012,
+      "human_rate": 0.00015,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 56,
+      "human_count": 181,
+      "example_context": "Obviously, this approach"
+    },
+    {
+      "type": "phrase_emphasis",
+      "item": "naturally",
+      "opus_rate": 0.0012,
+      "human_rate": 0.00015,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 56,
+      "human_count": 181,
+      "example_context": "Naturally, this leads to"
+    },
+    {
+      "type": "phrase_emphasis",
+      "item": "indeed",
+      "opus_rate": 0.0015,
+      "human_rate": 0.0001875,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 70,
+      "human_count": 226,
+      "example_context": "This is indeed a complex"
+    },
+    {
+      "type": "phrase_transition",
+      "item": "furthermore",
+      "opus_rate": 0.002,
+      "human_rate": 0.00025,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 94,
+      "human_count": 302,
+      "example_context": "Furthermore, the results"
+    },
+    {
+      "type": "phrase_transition",
+      "item": "moreover",
+      "opus_rate": 0.0018,
+      "human_rate": 0.000225,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 84,
+      "human_count": 271,
+      "example_context": "Moreover, this approach"
+    },
+    {
+      "type": "phrase_transition",
+      "item": "additionally",
+      "opus_rate": 0.002,
+      "human_rate": 0.00025,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 94,
+      "human_count": 302,
+      "example_context": "Additionally, we should consider"
+    },
+    {
+      "type": "phrase_transition",
+      "item": "nevertheless",
+      "opus_rate": 0.001,
+      "human_rate": 0.000125,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 47,
+      "human_count": 151,
+      "example_context": "Nevertheless, the results"
+    },
+    {
+      "type": "phrase_transition",
+      "item": "nonetheless",
+      "opus_rate": 0.0008,
+      "human_rate": 0.0001,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 37,
+      "human_count": 120,
+      "example_context": "Nonetheless, the approach"
+    },
+    {
+      "type": "phrase_transition",
+      "item": "consequently",
+      "opus_rate": 0.001,
+      "human_rate": 0.000125,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 47,
+      "human_count": 151,
+      "example_context": "Consequently, the team"
+    },
+    {
+      "type": "phrase_transition",
+      "item": "subsequently",
+      "opus_rate": 0.001,
+      "human_rate": 0.000125,
+      "log_odds": 2.08,
+      "ci_lower": 1.59,
+      "ci_upper": 2.57,
+      "opus_count": 47,
+      "human_count": 151,
+      "example_context": "Subsequently, the results"
+    },
+    {
+      "type": "phrase_emphasis",
+      "item": "clearly",
+      "opus_rate": 0.002,
+      "human_rate": 0.0003333,
+      "log_odds": 1.79,
+      "ci_lower": 1.3,
+      "ci_upper": 2.28,
+      "opus_count": 94,
+      "human_count": 402,
+      "example_context": "Clearly, the results demonstrate"
+    },
+    {
+      "type": "phrase_emphasis",
+      "item": "of course",
+      "opus_rate": 0.002,
+      "human_rate": 0.0003333,
+      "log_odds": 1.79,
+      "ci_lower": 1.3,
+      "ci_upper": 2.28,
+      "opus_count": 94,
+      "human_count": 402,
+      "example_context": "Of course, this depends"
+    },
+    {
+      "type": "phrase_transition",
+      "item": "in addition",
+      "opus_rate": 0.002,
+      "human_rate": 0.0003333,
+      "log_odds": 1.79,
+      "ci_lower": 1.3,
+      "ci_upper": 2.28,
+      "opus_count": 94,
+      "human_count": 402,
+      "example_context": "In addition, we found"
+    },
+    {
+      "type": "phrase_conclusion",
+      "item": "overall",
+      "opus_rate": 0.003,
+      "human_rate": 0.0006,
+      "log_odds": 1.61,
+      "ci_lower": 1.12,
+      "ci_upper": 2.1,
+      "opus_count": 141,
+      "human_count": 724,
+      "example_context": "Overall, the results suggest"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "marginal_phrases": [
+    "marginally significant",
+    "all but significant",
+    "a nonsignificant trend",
+    "failed to reach statistical significance",
+    "nearly significant",
+    "a strong trend",
+    "a clear trend",
+    "trending toward significance",
+    "approached significance",
+    "borderline significant",
+    "weakly significant",
+    "marginally non-significant",
+    "approaching statistical significance",
+    "show a trend",
+    "showed a trend",
+    "suggestive significance"
+  ],
+  "binary_sig_phrases": [
+    "statistically significant",
+    "not statistically significant",
+    "was not significant",
+    "were not significant",
+    "was significant",
+    "were significant",
+    "reached significance",
+    "did not reach significance",
+    "achieved significance",
+    "failed to achieve significance"
+  ],
+  "threshold_pvalue_strings": [
+    "p < 0.05",
+    "p < .05",
+    "p < 0.01",
+    "p < .01",
+    "p < 0.001",
+    "p < .001",
+    "p > 0.05",
+    "p > .05",
+    "p = NS",
+    "p=NS"
+  ]
+}

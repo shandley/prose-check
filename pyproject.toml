@@ -41,7 +41,7 @@ dev = [
 ]
 
 [project.scripts]
-prose-check = "check_writing:main"
+prose-check = "prose_check.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/shandley/prose-check"
@@ -49,12 +49,12 @@ Repository = "https://github.com/shandley/prose-check"
 Issues = "https://github.com/shandley/prose-check/issues"
 Documentation = "https://github.com/shandley/prose-check/blob/main/docs/methodology.md"
 
-[tool.setuptools]
-py-modules = ["check_writing"]
-include-package-data = true
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["prose_check*"]
 
-[tool.setuptools.data-files]
-"share/prose-check" = ["results/markers.json", ".prose-check.yaml"]
+[tool.setuptools.package-data]
+prose_check = ["data/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

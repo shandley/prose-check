@@ -272,7 +272,7 @@ def build_markers() -> list[dict]:
 
 def load_existing_summary_stats() -> dict:
     """Preserve the valid structural stats from the original corpus analysis."""
-    markers_path = BASE / "results" / "markers.json"
+    markers_path = BASE / "prose_check" / "data" / "markers.json"
     if not markers_path.exists():
         return {}
     with open(markers_path) as f:
@@ -305,7 +305,7 @@ def main() -> None:
         "markers": markers,
     }
 
-    out_path = BASE / "results" / "markers.json"
+    out_path = BASE / "prose_check" / "data" / "markers.json"
     with open(out_path, "w") as f:
         json.dump(output, f, indent=2)
 

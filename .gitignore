@@ -9,8 +9,10 @@ __pycache__/
 *.egg-info/
 .eggs/
 
-# Generated data (large files)
+# Generated data (large corpus JSONL files)
 data/
+# But track package data bundled with prose_check
+!prose_check/data/
 
 # IDE / Tool generated
 .idea/
