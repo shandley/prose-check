@@ -10,6 +10,10 @@ from . import Checker
 MIN_HEALTHY_PARA_WORDS = 40       # non-technical prose threshold
 MIN_HEALTHY_PARA_WORDS_TECH = 20  # lower threshold for technical/methods text
 MAX_LIST_ITEMS_PER_100_WORDS = 1.0
+# Fragmentation is a pattern across paragraphs; with only one or two you cannot
+# tell a fragmented section from a legitimately short one (data availability,
+# author contributions, a one-line note). Require a minimum before flagging.
+MIN_PARAGRAPHS_FOR_FRAGMENTATION = 3
 
 
 class StructureChecker(Checker):
@@ -35,7 +39,11 @@ class StructureChecker(Checker):
 
         threshold = MIN_HEALTHY_PARA_WORDS_TECH if context.technical else MIN_HEALTHY_PARA_WORDS
 
-        if avg_para_words > 0 and avg_para_words < threshold:
+        if (
+            len(para_word_counts) >= MIN_PARAGRAPHS_FOR_FRAGMENTATION
+            and avg_para_words > 0
+            and avg_para_words < threshold
+        ):
             severity = Severity.MEDIUM
             findings.append(Finding(
                 checker=self.name,

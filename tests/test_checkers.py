@@ -159,8 +159,15 @@ class TestStatPhraseChecker:
             "The association was significant (p = 0.032, OR = 1.45, 95% CI [1.12, 1.88]).",
             default_ctx,
         )
-        # Exact p-value present -- binary_sig should not fire
-        assert not any(f.rule_id == "binary_sig" for f in findings)
+        # Exact p-value reported; no marginal hedging or bare threshold -- no findings.
+        assert findings == []
+
+    def test_threshold_not_matched_inside_longer_pvalue(self):
+        # "p < 0.05" must not match inside "p < 0.051".
+        checker = StatPhraseChecker()
+        ctx = DocumentContext(section_type=SectionType.RESULTS)
+        findings = checker.check("The enrichment held at p < 0.051 across windows.", ctx)
+        assert not any(f.rule_id == "threshold_pvalue" for f in findings)
 
 
 # -- CausalLangChecker ---------------------------------------------------------

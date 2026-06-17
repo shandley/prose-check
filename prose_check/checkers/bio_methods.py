@@ -95,27 +95,37 @@ class BioMethodsChecker(Checker):
         return findings
 
     def _check_tool_versions(self, text: str) -> list[Finding]:
-        """Flag known bioinformatics tools used without adjacent version numbers."""
-        findings: list[Finding] = []
-        seen_tools: set[str] = set()
+        """Flag known bioinformatics tools used without a version number anywhere.
 
+        A tool is only flagged if NONE of its mentions has an adjacent version. This
+        avoids false positives when a tool is first named bare ("bedtools flank")
+        but versioned elsewhere in the section ("Bedtools version 2.31").
+        """
+        # Group every mention of each tool by name, in document order. Tool detection
+        # is case-sensitive (so "STAR" the aligner is not "star" the word).
+        mentions: dict[str, list[re.Match]] = {}
         for match in self._tool_pattern.finditer(text):
-            tool = match.group()
-            tool_lower = tool.lower()
-            if tool_lower in seen_tools:
+            mentions.setdefault(match.group().lower(), []).append(match)
+
+        findings: list[Finding] = []
+        for tool_lower, matches in mentions.items():
+            # Versioned if ANY occurrence of the tool name has a version within +-60
+            # chars. The version sweep is case-insensitive so a sentence-case mention
+            # ("Bedtools version 2.31") counts for lowercase usages ("bedtools flank").
+            # This only ever suppresses a finding, so the relaxed match is safe.
+            versioned = any(
+                _VERSION_PATTERN.search(
+                    text[max(0, m.start() - 60):min(len(text), m.end() + 60)]
+                )
+                for m in re.finditer(r"\b" + re.escape(tool_lower) + r"\b", text, re.IGNORECASE)
+            )
+            if versioned:
                 continue
 
-            # Check a window of +-60 chars around the tool name for a version string
-            window_start = max(0, match.start() - 60)
-            window_end = min(len(text), match.end() + 60)
-            window = text[window_start:window_end]
-            if _VERSION_PATTERN.search(window):
-                seen_tools.add(tool_lower)
-                continue  # version present -- no finding
-
-            seen_tools.add(tool_lower)
-            ctx_start = max(0, match.start() - 40)
-            ctx_end = min(len(text), match.end() + 40)
+            first = matches[0]
+            tool = first.group()
+            ctx_start = max(0, first.start() - 40)
+            ctx_end = min(len(text), first.end() + 40)
             ctx = "..." + text[ctx_start:ctx_end].replace("\n", " ") + "..."
             findings.append(Finding(
                 checker=self.name,

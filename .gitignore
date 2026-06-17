@@ -3,6 +3,10 @@
 venv/
 env/
 
+# Local scratch (may contain unpublished manuscript text) and build artifacts
+scratch/
+build/
+
 # Python
 __pycache__/
 *.py[cod]

@@ -47,26 +47,39 @@ class TestCLIStdin:
         assert "<html" in result.stdout.lower()
 
     def test_section_flag(self):
+        # causal_lang is opt-in (advisory, excluded from the default score); request it.
         result = run_cli(
-            "--stdin", "--section", "results", "--format", "json",
+            "--stdin", "--section", "results", "--checkers", "causal_lang",
+            "--format", "json",
             stdin_text="Temperature drives species richness.",
         )
         data = json.loads(result.stdout)
-        # causal_lang checker should fire in results section with unknown study type
         all_findings = data.get("high_severity", []) + data.get("medium_severity", [])
         checkers = {f["checker"] for f in all_findings}
         assert "causal_lang" in checkers
 
-    def test_study_type_flag(self):
-        # With observational study type, causal language should be flagged
-        result_obs = run_cli(
+    def test_causal_lang_excluded_from_default(self):
+        # causal_lang must NOT run by default — it is advisory and must not move the score.
+        result = run_cli(
             "--stdin", "--section", "results", "--study-type", "observational",
             "--format", "json",
+            stdin_text="Temperature drives species richness.",
+        )
+        data = json.loads(result.stdout)
+        all_findings = data.get("high_severity", []) + data.get("medium_severity", [])
+        checkers = {f["checker"] for f in all_findings}
+        assert "causal_lang" not in checkers
+
+    def test_study_type_flag(self):
+        # With observational study type, causal language should be flagged (opt-in checker).
+        result_obs = run_cli(
+            "--stdin", "--section", "results", "--study-type", "observational",
+            "--checkers", "causal_lang", "--format", "json",
             stdin_text="The mutation causes resistance in these populations.",
         )
         result_exp = run_cli(
             "--stdin", "--section", "results", "--study-type", "experimental",
-            "--format", "json",
+            "--checkers", "causal_lang", "--format", "json",
             stdin_text="The mutation causes resistance in these populations.",
         )
         data_obs = json.loads(result_obs.stdout)

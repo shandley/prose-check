@@ -33,8 +33,13 @@ class StatPhraseChecker(Checker):
     """
     Flags problematic statistical language in scientific manuscripts:
     - Phrases that soften non-significant results ("marginally significant")
-    - Binary significance framing ("statistically significant" as conclusion)
     - Threshold-only p-value reporting ("p < 0.05" as a final value)
+
+    Binary significance framing ("statistically significant" as a conclusion) is
+    intentionally NOT checked here: deciding whether a significance claim is
+    appropriate given the data shown is a judgment call that requires reading the
+    surrounding evidence, not a phrase lookup. That belongs to the advisory
+    (LLM-in-the-loop) layer, not the deterministic score.
     """
 
     name = "stat_phrases"
@@ -46,7 +51,6 @@ class StatPhraseChecker(Checker):
     def check(self, text: str, context: DocumentContext) -> list[Finding]:
         findings: list[Finding] = []
         findings.extend(self._check_marginal_phrases(text))
-        findings.extend(self._check_binary_significance(text))
         findings.extend(self._check_threshold_pvalues(text, context))
         return findings
 
@@ -54,7 +58,7 @@ class StatPhraseChecker(Checker):
         """Flag phrases that hedge non-significant results."""
         findings: list[Finding] = []
         for phrase in self._data.get("marginal_phrases", []):
-            pattern = re.compile(re.escape(phrase), re.IGNORECASE)
+            pattern = re.compile(r"\b" + re.escape(phrase) + r"\b", re.IGNORECASE)
             for match in pattern.finditer(text):
                 start = max(0, match.start() - 40)
                 end = min(len(text), match.end() + 40)
@@ -73,38 +77,6 @@ class StatPhraseChecker(Checker):
                 ))
         return findings
 
-    def _check_binary_significance(self, text: str) -> list[Finding]:
-        """Flag binary significant/not-significant framing used as a conclusion."""
-        findings: list[Finding] = []
-        for phrase in self._data.get("binary_sig_phrases", []):
-            pattern = re.compile(re.escape(phrase), re.IGNORECASE)
-            for match in pattern.finditer(text):
-                # Check if an exact p-value appears within ±100 chars (mitigates false positives)
-                window_start = max(0, match.start() - 100)
-                window_end = min(len(text), match.end() + 100)
-                window = text[window_start:window_end]
-                has_exact_pvalue = bool(re.search(
-                    r"p\s*[=<>]\s*0?\.\d{3,}",  # e.g. p = 0.032, p < 0.001
-                    window, re.IGNORECASE
-                ))
-                if not has_exact_pvalue:
-                    ctx_start = max(0, match.start() - 40)
-                    ctx_end = min(len(text), match.end() + 40)
-                    ctx = "..." + text[ctx_start:ctx_end].replace("\n", " ") + "..."
-                    findings.append(Finding(
-                        checker=self.name,
-                        rule_id="binary_sig",
-                        text=match.group(),
-                        message=(
-                            f'"{phrase}" frames significance as binary. '
-                            "Report exact p-values and effect sizes."
-                        ),
-                        severity=Severity.MEDIUM,
-                        alternative="Report exact p-value (e.g., p = 0.032) and effect size",
-                        context=ctx,
-                    ))
-        return findings
-
     def _check_threshold_pvalues(self, text: str, context: DocumentContext) -> list[Finding]:
         """Flag p-values reported only as threshold comparisons in results/discussion."""
         # Only flag in results and discussion — threshold reporting in methods (e.g.,
@@ -115,7 +87,8 @@ class StatPhraseChecker(Checker):
             return []
         findings: list[Finding] = []
         for pval_str in self._data.get("threshold_pvalue_strings", []):
-            pattern = re.compile(re.escape(pval_str), re.IGNORECASE)
+            # Trailing (?!\d) stops "p < 0.05" from matching inside "p < 0.051".
+            pattern = re.compile(re.escape(pval_str) + r"(?!\d)", re.IGNORECASE)
             for match in pattern.finditer(text):
                 # Skip if this looks like a methods threshold definition
                 window_start = max(0, match.start() - 80)
